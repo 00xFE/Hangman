@@ -27,6 +27,11 @@ int checkword(char *buffer, char *parola, char lettera) {
     }
 }
 
+void vuln() {
+
+        printf("%s =? %s => %d", buffer, parola, strncmp(buffer, parola, 100));
+}
+
 void omino(int err) {
     if (err == 0) {
         printf("T------|\n");
@@ -113,7 +118,6 @@ int main () {
         
         omino(err);
         
-        printf("%s =? %s => %d", buffer, parola, strncmp(buffer, parola, 100));
 
         if (strncmp(buffer, parola, 100) == 0) {
             printf("\nHai vinto! :)\n");
