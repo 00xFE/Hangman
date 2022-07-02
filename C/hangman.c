@@ -1,11 +1,17 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
 #include <string.h>
+// compile with -no-pie -fno-stack-protector
+char ez[100];
 
 void clear() {
+    /*
     for (int i = 0; i < 300; i++) {
         printf("\n");
     }
+    */
+    // Deviante leccata da stackoverflow
+    printf("\033[2J\033[1;1H");
 }
 
 int checkword(char *buffer, char *parola, char lettera) {
@@ -27,12 +33,16 @@ int checkword(char *buffer, char *parola, char lettera) {
     }
 }
 
-void vuln() {
-
-        printf("%s =? %s => %d", buffer, parola, strncmp(buffer, parola, 100));
+void sussiervuln() {
+    printf("easy mode: %s", ez);
 }
 
-void omino(int err) {
+void vuln(char* parola) { //buffer overflow con argomenti, è possibile?
+    //printf("%s =? %s => %d", buffer, parola, strncmp(buffer, parola, 100));
+    printf("mentre dormi, Leo sta già flaggando: %s", parola);
+}
+
+void omino(int err) { //Al contrario di quel poser di leo la grafica è tutta fatta in casa
     if (err == 0) {
         printf("T------|\n");
         printf("|      \n");
@@ -103,9 +113,14 @@ int main () {
             parola[i] = '+';
         } else parola[i] = '-';
     }
-    //parola[i] = '\0';
-    printf("%d", parola[i]);
-    
+    parola[i] = '\0';
+    //printf("%d", parola[i]);
+    strcpy(ez, buffer);
+
+    int m = 0;
+    if (m == 1) vuln(ez); //🤔
+    //sussiervuln();
+
     while(1){
         printf("\n\n%s\n", parola);
         printf("Prova ad inserire una lettera:\n");

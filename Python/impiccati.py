@@ -1,5 +1,7 @@
 # GIOCO DELL'IMPICCATO - Bombonati Leonardo
 
+# Leggere i tuoi commenti è un toccasana per l'anima, leo -J
+
 # ho rubato questa lista di ascii art ad una repo su github godo
 HANGMANPICS = ['''
   +---+
@@ -54,7 +56,7 @@ HANGMANPICS = ['''
 
 def check_lettera(lettera_guessata, parola_listata):
     if lettera_guessata in parola_listata:
-        print("\nGrande, parola trovata!")
+        print("\nGrande, lettera trovata!") #vibe check -J
         return 0
     else:
         print("\nGuessa più forte")
@@ -126,3 +128,4 @@ def main():
 
 if __name__ == "__main__":
     main() 
+# Com'è possibile che in python ci hai messo più righe di me in C? -J
