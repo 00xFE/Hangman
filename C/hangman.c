@@ -91,30 +91,35 @@ int main () {
     printf("(Solo minuscole, niente spazi o caratteri speciali)\n");
     scanf("%s", buffer);
     
-    //clear();
+    clear();
 
     for (i = 0; buffer[i] != '\0'; i++){
         if (buffer[i] == 'u' ||buffer[i] == 'o' ||buffer[i] == 'i' ||buffer[i] == 'e' ||buffer[i] == 'a') {
             parola[i] = '+';
         } else parola[i] = '-';
     }
-    //scanf("%s");
-    //while(1){
-        printf("Prova ad inserire una lettera:\n");
-        //putchar(stdin);
-        char lett[1];
-        fgets(lett, 1, stdin);
-        printf("inserito: %c", lett);
-        
-        //err += checkword(buffer, parola, lettera);
-        /*
-        omino(err);
+    //parola[i] = '\0';
+    printf("%d", parola[i]);
+    
+    while(1){
         printf("\n\n%s\n", parola);
-        if (strcmp(buffer, parola) == 0) {
+        printf("Prova ad inserire una lettera:\n");
+        
+        while ((getchar()) != '\n');
+        lettera = getchar();
+        printf("inserito: %c\n", lettera);
+        
+        err += checkword(buffer, parola, lettera);
+        
+        omino(err);
+        
+        printf("%s =? %s => %d", buffer, parola, strncmp(buffer, parola, 100));
+
+        if (strncmp(buffer, parola, 100) == 0) {
             printf("\nHai vinto! :)\n");
             exit(0);
         }
-        */
-    //}
+        
+    }
     return 0;
 }
